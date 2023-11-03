@@ -109,3 +109,39 @@ DataContext dc = new DataContext();
 
 //    Console.WriteLine(ex.Message);
 //}
+
+//var selectTest = dc.Movies.Join(dc.Directors, m => m.DirectorID, d => d.personId, (m, d) => new { MovieName = m.Title, DirectorName = d.FirstName + " " + d.LastName });
+
+//foreach (var val in selectTest)
+//{
+//    Console.WriteLine($"Director {val.DirectorName} has created {val.MovieName}");
+//}
+
+//List<Director> dList = dc.Directors.ToList();
+//List<Movie> mList =  dc.Movies.ToList();
+
+//var t = dList.GroupJoin(mList, d => d.personId, m => m.DirectorID, (d, m) => new { DirectorName = d.LastName + " " + d.FirstName, MoviesRealised = m });
+
+//foreach (var d in t)
+//{
+//    Console.WriteLine($"Director name : {d.DirectorName} has realised :  " );
+
+//    if (d.MoviesRealised.Count() > 0)
+//    {
+//        foreach (var m in d.MoviesRealised)
+//        {
+//        Console.WriteLine($"{m.Title}");
+//        }
+//    } else
+//    {
+//        Console.WriteLine("No movie found");
+//    }
+//}
+
+//var actorsAndMovies = dc.Actors.Join(dc.ActorMovie, a => a.personId, am => am.ActorId, (a, am) => new { a , am })
+//    .Join(dc.Movies, am => am.am.MovieId, m => m.MovieId, (am,m ) => new { ActorName = am.a.FirstName + " " + am.a.LastName, Movies = m.Title });
+
+//foreach (var actMov in actorsAndMovies)
+//{
+//    Console.WriteLine($"{actMov.ActorName} has played in {actMov.Movies}");
+//}
